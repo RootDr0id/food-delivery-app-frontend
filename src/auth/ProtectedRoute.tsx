@@ -5,10 +5,21 @@ import { Navigate, Outlet } from "react-router-dom";
 //Then if they are we"ll allow them through the protected route they're trying to acess
 //If not we'll redirect them to the home page
 const ProtectedRoute = () => {
-  const{isAuthenticated}=useAuth0();
-  return isAuthenticated ? (<Outlet/>) : (<Navigate to ="/" replace/>);
+  const{isAuthenticated,isLoading}=useAuth0();
+
+  if (isLoading) {
+    return null;
+  }
+
+  if (isAuthenticated) {
+    return <Outlet />;
+  }
+
+  return <Navigate to="/" replace />;
+
 //Outlet renders all the child routes of this component.
 //In our case it"ll do so if isAuthenticated is true	
+//otherwise it'll redirect to the homepage
 }
 
 export default ProtectedRoute;
