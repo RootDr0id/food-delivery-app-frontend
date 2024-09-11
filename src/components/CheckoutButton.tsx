@@ -15,7 +15,7 @@ type Props = {
 };
 
 /**
- * @description A button that handles login and redirect to checkout page. If the user is logged in, it opens a dialog to confirm delivery details.
+ * A button that handles login and redirect to checkout page. If the user is logged in, it opens a dialog to confirm delivery details.
  * @param {{ onCheckout: (userFormData: UserFormData) => void; disabled: boolean; isLoading: boolean; }} props
  * @returns {JSX.Element}
  */

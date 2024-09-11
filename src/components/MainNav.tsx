@@ -5,7 +5,7 @@ import UsernameMenu from "./UsernameMenu";
 
 
 /**
- * @description A navigation component that will show different links based on whether the user is logged in or not.
+ * A navigation component that will show different links based on whether the user is logged in or not.
  * If the user is logged in, it will show a link to the order status page and a username menu.
  * If the user is not logged in, it will show a button to log in.
  * @returns {React.ReactElement} The navigation links.

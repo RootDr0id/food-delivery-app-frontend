@@ -34,6 +34,15 @@ type Props = {
   buttonText?: string;
 };
 
+/**
+ * A form component to manage a user profile.
+ * The form is pre-filled with the user data if it is provided.
+ * The form data is validated using zod.
+ * The form data is passed to the onSave function when the form is submitted.
+ * The form is disabled if the isLoading state is true.
+ * @param {Props} props
+ * @returns {JSX.Element}
+ */
 const UserProfileForm = ({
   onSave,
   isLoading,
