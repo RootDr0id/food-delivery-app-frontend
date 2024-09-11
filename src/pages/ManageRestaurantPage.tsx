@@ -14,6 +14,7 @@ const ManageRestaurantPage = () => {
   const { updateRestaurant, isLoading: isUpdateLoading } =useUpdateMyRestaurant();
 
   const { orders } = useGetMyRestaurantOrders();
+  const activeOrders = orders?.filter((order) => order.status !== "delivered");
 
   const isEditing = !!restaurant;
 
@@ -27,8 +28,8 @@ const ManageRestaurantPage = () => {
         value="orders"
         className="space-y-5 bg-gray-50 p-10 rounded-lg"
       >
-        <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
-        {orders?.map((order) => (
+        <h2 className="text-2xl font-bold">{activeOrders?.length} active orders</h2>
+        {activeOrders?.map((order) => (
           <OrderItemCard order={order} />
         ))}
       </TabsContent>
