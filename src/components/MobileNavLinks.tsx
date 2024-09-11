@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
+/**
+ * MobileNavLinks component renders a list of links and a logout button, which appears only on mobile viewports.
+ * The links are to the order status page, the manage restaurant page, the user profile page, and the logout button.
+ * The logout button is a button that calls the logout function from the useAuth0 hook to log the user out.
+ * @returns {JSX.Element} A JSX element representing the MobileNavLinks component.
+ */
 const MobileNavLinks = () => {
   const { logout } = useAuth0();
   return (

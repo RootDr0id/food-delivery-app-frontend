@@ -17,7 +17,13 @@ import { useEffect, useState } from "react";
 type Props = {
   order: Order;
 };
-// Component that displays the details of the order(customer name ,cost,delivery adress etc )
+
+  /**
+   * A component that renders a single order item from the restaurant perspective.
+   * It displays the customer name, delivery address, time, total cost, and order items.
+   * It also displays a dropdown to update the status of the order.
+   * @param {Order} order - the order to be rendered
+   */
 const OrderItemCard = ({ order }: Props) => {
   const { updateRestaurantStatus, isLoading } = useUpdateMyRestaurantOrder();//hook imported from api/MyRestaurantApi
   const [status, setStatus] = useState<OrderStatus>(order.status);

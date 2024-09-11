@@ -3,6 +3,16 @@ import appDownloadImage from "../assets/appDownload.png";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * The home page of the website.
+ *
+ * This page displays a search bar, a call to action to order a takeaway, and
+ * a section to download the MernEats app.
+ *
+ * @returns The JSX element representing the home page.
+ * @example
+ * <HomePage />
+ */
 const HomePage = () => {
   const navigate = useNavigate();
 
@@ -31,7 +41,7 @@ const HomePage = () => {
             Order takeaway even faster!
           </span>
           <span>
-            Download the MernEats App for faster ordering and personalised
+            Download the App for faster ordering and personalised
             recommendations
           </span>
           <img src={appDownloadImage} />

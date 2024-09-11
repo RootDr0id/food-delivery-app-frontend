@@ -9,6 +9,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form";
 
+/**
+ * A component that renders a form section for the restaurant image.
+ *
+ * It renders a description about the image field, an existing image if one is
+ * provided, and an input field to select a new image. If a new image is selected,
+ * it will overwrite the existing one.
+ *
+ * It uses the useFormContext hook to get the control object and watch the
+ * imageUrl field.
+ *
+ * @returns {JSX.Element} The JSX element representing the form section.
+ */
 const ImageSection = () => {
   const { control, watch } = useFormContext();
 

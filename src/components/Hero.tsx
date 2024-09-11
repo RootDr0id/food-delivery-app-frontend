@@ -1,4 +1,8 @@
 import hero from "../assets/hero.png";
+/**
+ * Returns a div containing the image for the website
+ * @returns {JSX.Element}
+ */
 const Hero = () => {
   return(
     <div>

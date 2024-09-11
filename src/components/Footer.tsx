@@ -1,3 +1,8 @@
+/**
+ * Footer component
+ *
+ * @returns {JSX.Element}
+ */
 const Footer = () => {
     return (
       <div className="bg-orange-500 py-10">

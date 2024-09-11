@@ -1,6 +1,10 @@
 import { Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
 
+/**
+ * A simple button that displays a loading animation and is disabled.
+ */
+
 const LoadingButton = () => {
   return (
     <Button disabled>

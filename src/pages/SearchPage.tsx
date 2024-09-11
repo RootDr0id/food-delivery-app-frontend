@@ -15,6 +15,51 @@ export type SearchState = {
   sortOption: string;
 };
 
+  /**
+   * The SearchPage component renders the search page.
+   *
+   * It renders a search bar at the top of the page that allows users to search for
+   * restaurants by name or cuisine.
+   *
+   * Below the search bar, it renders a list of cuisines that can be used to filter
+   * the search results.
+   *
+   * The list of cuisines is rendered as a grid of checkboxes, with the name of each
+   * cuisine as a label next to the checkbox.
+   * The cuisines are rendered in alphabetical order.
+   *
+   * The user can select one or more cuisines to filter the search results.
+   *
+   * When the user clicks on a cuisine, the page will re-render with the search results
+   * filtered to only show restaurants that serve that cuisine.
+   *
+   * The page will also render a link to reset the filter, which will re-render the
+   * page with all the search results.
+   *
+   * Below the list of cuisines, the component renders the search results.
+   * The search results are rendered as a grid of cards, with each card containing the
+   * name, cuisines, estimated delivery time, and delivery price of a restaurant.
+   *
+   * The user can click on a card to view more information about a restaurant.
+   *
+   * The component also renders pagination controls that allow the user to navigate
+   * between the pages of search results.
+   *
+   * The component uses the useSearchRestaurants hook to fetch the search results from
+   * the backend.
+   *
+   * The component uses the useSearchParams hook to read the search query from the URL
+   * and to update the URL when the user searches for something new.
+   *
+   * The component uses the useState hook to keep track of the search query and the
+   * selected cuisines.
+   *
+   * The component uses the useEffect hook to update the URL when the user searches for
+   * something new.
+   *
+   * The component uses the useNavigate hook to navigate to the restaurant detail page
+   * when the user clicks on a card.
+   */
 const SearchPage = () => {
   const { city } = useParams();
   const [searchState, setSearchState] = useState<SearchState>({

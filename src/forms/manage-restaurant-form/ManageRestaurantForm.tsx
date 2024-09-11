@@ -56,6 +56,15 @@ type Props = {
   isLoading: boolean;
 };
 
+  /**
+   * A form component to manage a restaurant.
+   * The form is pre-filled with the restaurant data if it is provided.
+   * The form data is validated using zod.
+   * The form data is converted to a FormData object before being passed to the onSave function.
+   * The form is disabled if the isLoading state is true.
+   * @param {Props} props
+   * @returns {JSX.Element}
+   */
 const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
   const form = useForm<RestaurantFormData>({
     //this is a hook

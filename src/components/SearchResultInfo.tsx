@@ -4,6 +4,19 @@ type Props = {
   total: number;
   city: string;
 };
+
+/**
+ * Renders a message indicating how many restaurants were found in the given city.
+ *
+ * If the user is not in the city page, it also renders a link to go back to the homepage
+ * to change the location of the search.
+ *
+ * @param {Props} props
+ * @param {number} props.total
+ * @param {string} props.city
+ *
+ * @returns {JSX.Element}
+ */
 //
 const SearchResultInfo = ({ total, city }: Props) => {
   return (

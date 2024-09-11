@@ -9,6 +9,20 @@ import SearchPage from "./pages/SearchPage";
 import DetailPage from "./pages/DetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
 
+/**
+ * This component renders the main routes of the application.
+ *
+ * It renders:
+ * - The home page at the root path.
+ * - The search page at the path /search/:city.
+ * - The detail page at the path /detail/:restaurantId.
+ * - The order status page at the path /order-status.
+ * - The user profile page at the path /user-profile.
+ * - The manage restaurant page at the path /manage-restaurant.
+ *
+ * It also renders a catch-all route that redirects to the home page
+ * if the route is not recognized.
+ */
 const AppRoutes=()=>{
     return (
         <Routes>

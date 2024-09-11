@@ -3,6 +3,18 @@ import OrderStatusDetail from "@/components/OrderStatusDetail";
 import OrderStatusHeader from "@/components/OrderStatusHeader";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
+/**
+ * A page that displays the order status of all the user's orders.
+ *
+ * Fetches the user's orders from the backend api and renders a list of them.
+ * Each order is rendered with an OrderStatusHeader and an OrderStatusDetail.
+ * The OrderStatusHeader displays the order's status and the OrderStatusDetail
+ * displays the order's details, including the items in the order, the total cost,
+ * and the delivery address.
+ *
+ * If the orders are not yet loaded, renders "Loading..."
+ * If the user has no orders, renders "No orders found"
+ */
 const OrderStatusPage = () => {
   const { orders, isLoading } = useGetMyOrders();//Hook that fetches my orders from our backend api
 

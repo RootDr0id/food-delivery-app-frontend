@@ -22,6 +22,13 @@ export type CartItem = {
   quantity: number;
 };
 
+/**
+ * DetailPage component renders the restaurant detail page.
+ * It shows the restaurant's information, menu items, and a checkout button.
+ * When the checkout button is clicked, it redirects the user to the Stripe checkout page.
+ *
+ * @returns {JSX.Element}
+ */
 const DetailPage = () => {
   const { restaurantId } = useParams();
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);

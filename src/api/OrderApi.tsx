@@ -5,6 +5,15 @@ import { toast } from "sonner";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+  /**
+   * Hook that fetches my orders from our backend api.
+   *
+   * Returns an object with two properties:
+   * - `orders`: an array of order objects, or `undefined` if the request is still loading
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the orders and isLoading properties
+   */
 export const useGetMyOrders = () => {//Hook that fetches my orders from our backend api
   const { getAccessTokenSilently } = useAuth0();
 
@@ -50,6 +59,16 @@ type CheckoutSessionRequest = {
   restaurantId: string;
 };
 
+  /**
+   * Hook that sends a request to the backend to create a Stripe checkout session.
+   *
+   * Returns an object with two properties:
+   * - `createCheckoutSession`: a function that sends the request to the backend
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @param {CheckoutSessionRequest} checkoutSessionRequest the request to create a checkout session
+   * @returns {object} an object with the createCheckoutSession and isLoading properties
+   */
 export const useCreateCheckoutSession = () => {
   const { getAccessTokenSilently } = useAuth0();
 

@@ -14,6 +14,22 @@ type Props = {
   removeMenuItem: () => void;
 };
 
+/**
+ * A component that renders a form fieldset for a menu item.
+ * The component renders two input fields: one for the name of the menu item, and one for the price of the menu item.
+ * The component also renders a button to remove the menu item.
+ * The component uses the useFormContext hook to get the control object from the parent form,
+ * and uses the control object to render the input fields and the associated labels, errors, and messages.
+ * The component also uses the FormField and FormControl components from the @/components/ui/form module
+ * to render the form fields and the associated labels, errors, and messages.
+ * The component also uses the Button component from the @/components/ui/button module
+ * to render the button to remove the menu item.
+ * The component receives two props: index and removeMenuItem.
+ * The index prop is the index of the menu item in the parent form.
+ * The removeMenuItem prop is a function that removes the menu item from the parent form.
+ * @param {{ index: number, removeMenuItem: () => void }} props
+ * @returns {JSX.Element}
+ */
 const MenuItemInput = ({ index, removeMenuItem }: Props) => {
   const { control } = useFormContext();
 

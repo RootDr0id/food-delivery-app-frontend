@@ -11,6 +11,18 @@ type Props = {
   removeFromCart: (cartItem: CartItem) => void;
 };
 
+/**
+ * Component that renders a summary of the user's order.
+ * It displays the items in the cart, the total cost of the items, and the delivery cost.
+ * It also displays a "Remove" button next to each item in the cart.
+ * When the button is clicked, the item is removed from the cart.
+ *
+ * @param {Props} props
+ * @prop {Restaurant} restaurant The restaurant object.
+ * @prop {CartItem[]} cartItems The list of items in the cart.
+ * @prop {(cartItem: CartItem) => void} removeFromCart Function to remove an item from the cart.
+ * @returns {JSX.Element}
+ */
 const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
   const getTotalCost = () => {
     const totalp = cartItems.reduce(

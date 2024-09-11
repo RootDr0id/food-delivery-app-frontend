@@ -22,6 +22,23 @@ type Props = {
   searchQuery?: string;
 };
 
+/**
+ * A search bar component that renders a form with a text input and
+ * search/reset buttons. The component takes care of handling form
+ * submission and reset events, and also handles the default value
+ * of the input field.
+ *
+ * @param {Object} props
+ * @prop {function(searchForm: SearchForm): void} onSubmit - A function
+ * that will be called when the form is submitted with the current
+ * form data.
+ * @prop {function(): void} [onReset] - A function that will be called
+ * when the form is reset.
+ * @prop {string} [placeHolder] - The placeholder text for the input
+ * field. Defaults to "Restaurant name".
+ * @prop {string} [searchQuery] - The default value of the input field.
+ * If not provided, the input field will be empty.
+ */
 const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),

@@ -10,6 +10,15 @@ import { Link } from "react-router-dom";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 
+
+/**
+ * A dropdown menu that displays the user's email address and provides
+ * links to the "Manage Restaurant" and "User Profile" pages, as well as
+ * a logout button.
+ *
+ * @returns {JSX.Element} A JSX element representing the UsernameMenu
+ *                        component.
+ */
 const UsernameMenu = () => {
   const { user, logout } = useAuth0();
 

@@ -1,9 +1,17 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navigate, Outlet } from "react-router-dom";
 
-//This component will run a logic that'll check if the user is logged in
-//Then if they are we"ll allow them through the protected route they're trying to acess
-//If not we'll redirect them to the home page
+
+/**
+ * ProtectedRoute component
+ *
+ * If the user is authenticated (i.e. isAuthenticated===true),
+ * it renders all the child routes of this component.
+ * If the user is not authenticated (i.e. isAuthenticated===false),
+ * it redirects to the homepage.
+ * If the user is still loading (i.e. isLoading===true),
+ * it renders nothing.
+ */
 const ProtectedRoute = () => {
   const{isAuthenticated,isLoading}=useAuth0();
 

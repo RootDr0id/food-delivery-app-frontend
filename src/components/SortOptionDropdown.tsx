@@ -26,6 +26,14 @@ const SORT_OPTIONS = [
   },
 ];
 
+/**
+ * A dropdown menu for selecting a sort option for restaurants.
+ *
+ * @param {object} props
+ * @param {function} props.onChange - Called when the user selects a new sort option.
+ * @param {string} props.sortOption - The currently selected sort option.
+ * @returns {JSX.Element}
+ */
 const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
   const selectedSortLabel =
     SORT_OPTIONS.find((option) => option.value === sortOption)?.label ||

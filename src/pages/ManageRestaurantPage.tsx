@@ -8,6 +8,13 @@ import OrderItemCard from "@/components/OrderItemCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ManageRestaurantForm from "@/forms/manage-restaurant-form/ManageRestaurantForm";
 
+  /**
+   * Page for managing a restaurant, including viewing active orders and editing the restaurant profile.
+   *
+   * This page is only accessible by the owner of the restaurant.
+   *
+   * @returns A JSX element representing the Manage Restaurant page.
+   */
 const ManageRestaurantPage = () => {
   const { createRestaurant, isLoading: isCreateLoading } = useCreateMyRestaurant();
   const { restaurant } = useGetMyRestaurant();

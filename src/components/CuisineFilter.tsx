@@ -11,6 +11,17 @@ type Props = {
   onExpandedClick: () => void;
 };
 
+/**
+ * CuisineFilter is a component that renders a list of cuisines that can be used to filter restaurants.
+ * It takes three props: onChange, selectedCuisines, and isExpanded.
+ * onChange is a function that takes an array of cuisines and returns void.
+ * selectedCuisines is an array of strings representing the currently selected cuisines.
+ * isExpanded is a boolean that determines whether the component should render the full list of cuisines or a shorter list.
+ * The component renders a list of cuisines with checkboxes next to each one.
+ * When a checkbox is clicked, the onChange function is called with the new list of selected cuisines.
+ * The component also renders a "Reset Filters" button that resets the list of selected cuisines to an empty array.
+ * The component also renders a "View More" or "View Less" button that toggles the isExpanded prop.
+ */
 const CuisineFilter = ({
   onChange,
   selectedCuisines,

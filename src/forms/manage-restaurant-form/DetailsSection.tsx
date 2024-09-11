@@ -9,6 +9,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form";
 
+/**
+ * A component that renders a form section for the restaurant details.
+ *
+ * It renders three fields: name, city, country, delivery price, and estimated delivery time.
+ *
+ * The component uses the react-hook-form useFormContext hook to get the control object.
+ * It uses the control object to render the fields and the associated labels, errors, and messages.
+ *
+ * @returns {JSX.Element} The JSX element representing the form section.
+ */
 const DetailsSection = () => {
   const { control } = useFormContext();//this is a hook
   return (

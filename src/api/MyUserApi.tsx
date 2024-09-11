@@ -9,6 +9,17 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; //adress of backend API
 
 //IN here we have our 3 hooks that will interact with our endpoints
 //Which we'll find in Backend/src/routes/MyUserRoutes.tsx (it"s our backend api) 
+
+/**
+ * Hook that fetches the current user from the backend api.
+ *
+ * Returns an object with three properties:
+ * - `currentUser`: the current user object, or `undefined` if the request is still loading
+ * - `isLoading`: a boolean indicating whether the request is still loading
+ * - `error`: an error object if the request fails
+ *
+ * @returns {object} an object with the currentUser, isLoading and error properties
+ */
 export const useGetMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
 
@@ -51,6 +62,17 @@ type CreateUserRequest = {
   email: string;
 };
 
+  /**
+   * Hook that sends a request to the backend to create a user.
+   *
+   * Returns an object with four properties:
+   * - `createUser`: a function that sends the request to the backend
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   * - `isError`: a boolean indicating whether the request resulted in an error
+   * - `isSuccess`: a boolean indicating whether the request was successful
+   *
+   * @returns {object} an object with the createUser, isLoading, isError, and isSuccess properties
+   */
 export const useCreateMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
 
@@ -93,6 +115,15 @@ type UpdateMyUserRequest = {//email is not sent, just for display purposes
   country: string;
 };
 
+/**
+ * Hook that sends a request to the backend to update the current user.
+ *
+ * Returns an object with two properties:
+ * - `updateUser`: a function that sends the request to the backend
+ * - `isLoading`: a boolean indicating whether the request is still loading
+ *
+ * @returns {object} an object with the updateUser and isLoading properties
+ */
 export const useUpdateMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
 

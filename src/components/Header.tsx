@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import MainNav from "./MainNav";
 
+/**
+ * Renders the header section of the page, which contains a logo and a navigation menu.
+ *
+ * The logo is always visible, while the navigation menu is only visible on medium
+ * screen sizes and above. On smaller screen sizes, the navigation menu is hidden and
+ * replaced with a mobile navigation menu.
+ * @returns The header section of the page.
+ */
 const Header = () => {
   return (
     <div className="border-b-2 border-b-orange-500 py-6">

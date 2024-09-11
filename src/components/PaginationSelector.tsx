@@ -13,6 +13,16 @@ type Props = {
   onPageChange: (page: number) => void;
 };
 
+/**
+ * PaginationSelector
+ *
+ * A pagination component that shows a list of all pages and highlights the current page.
+ *
+ * @param {number} page - The current page number.
+ * @param {number} pages - The total number of pages.
+ * @param {function} onPageChange - The function to call when the user clicks on a different page link.
+ * @returns {ReactElement} The pagination component.
+ */
 const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
   const pageNumbers = [];
   for (let i = 1; i <= pages; i++) {

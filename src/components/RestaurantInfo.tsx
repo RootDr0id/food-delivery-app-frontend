@@ -12,6 +12,16 @@ type Props = {
   restaurant: Restaurant;
 };
 
+/**
+ * A component that renders a restaurant's information in a card format.
+ *
+ * The component renders the restaurant's name, city, country, and cuisines.
+ * The cuisines are rendered as a comma-separated list with a trailing dot
+ * after each cuisine except the last one.
+ *
+ * @param restaurant the restaurant object to render
+ * @returns a JSX element representing the restaurant information card
+ */
 const RestaurantInfo = ({ restaurant }: Props) => {
   return (
     <Card className="border-sla">

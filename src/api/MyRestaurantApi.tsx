@@ -5,9 +5,23 @@ import { toast } from "sonner";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+  /**
+   * Hook that fetches my restaurant from our backend api.
+   *
+   * Returns an object with two properties:
+   * - `restaurant`: the restaurant object, or `undefined` if the request is still loading
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the restaurant and isLoading properties
+   */
 export const useGetMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
 
+  /**
+   * Request that we'll send to the backend endpoint to fetch my restaurant.
+   *
+   * @returns {Promise<Restaurant>} a promise that resolves with the restaurant object
+   */
   const getMyRestaurantRequest = async (): Promise<Restaurant> => {
     const accessToken = await getAccessTokenSilently();
 
@@ -32,8 +46,24 @@ export const useGetMyRestaurant = () => {
   return { restaurant, isLoading };
 };
 
+
+  /**
+   * Hook that sends a request to the backend to create a restaurant.
+   *
+   * Returns an object with two properties:
+   * - `createRestaurant`: a function that sends the request to the backend
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the createRestaurant and isLoading properties
+   */
 export const useCreateMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
+  /**
+   * Request that we'll send to the backend endpoint to create a restaurant.
+   *
+   * @param {FormData} restaurantFormData - form data containing restaurant details
+   * @returns {Promise<Restaurant>} a promise that resolves with the created restaurant object
+   */
 
   const createMyRestaurantRequest = async (
     restaurantFormData: FormData
@@ -73,9 +103,24 @@ export const useCreateMyRestaurant = () => {
   return { createRestaurant, isLoading };
 };
 
+  /**
+   * Hook that sends a request to the backend to update a restaurant.
+   *
+   * Returns an object with two properties:
+   * - `updateRestaurant`: a function that sends the request to the backend
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the updateRestaurant and isLoading properties
+   */
 export const useUpdateMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
 
+  /**
+   * Request that we'll send to the backend endpoint to update my restaurant.
+   *
+   * @param {FormData} restaurantFormData - form data containing restaurant details
+   * @returns {Promise<Restaurant>} a promise that resolves with the updated restaurant object
+   */
   const updateRestaurantRequest = async (
     restaurantFormData: FormData
   ): Promise<Restaurant> => {
@@ -113,6 +158,15 @@ export const useUpdateMyRestaurant = () => {
   return { updateRestaurant, isLoading };
 };
 
+  /**
+   * Hook that fetches my restaurant orders from the backend api.
+   *
+   * Returns an object with two properties:
+   * - `orders`: an array of order objects, or `undefined` if the request is still loading
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the orders and isLoading properties
+   */
 export const useGetMyRestaurantOrders = () => {// hook that fetches my restaurant orders from the backend api
   const { getAccessTokenSilently } = useAuth0();
 
@@ -146,6 +200,15 @@ type UpdateOrderStatusRequest = {
   status: string;
 };
 
+  /**
+   * Hook that sends a request to the backend to update a restaurant order.
+   *
+   * Returns an object with two properties:
+   * - `updateRestaurantStatus`: a function that sends the request to the backend
+   * - `isLoading`: a boolean indicating whether the request is still loading
+   *
+   * @returns {object} an object with the updateRestaurantStatus and isLoading properties
+   */
 export const useUpdateMyRestaurantOrder = () => {
   const { getAccessTokenSilently } = useAuth0();
 

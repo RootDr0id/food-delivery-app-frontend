@@ -11,6 +11,14 @@ import { Button } from "./ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
 import MobileNavLinks from "./MobileNavLinks";
 
+/**
+ * The mobile navigation component.
+ * 
+ * This component shows a sheet with a different set of links based on whether
+ * the user is authenticated or not. If the user is authenticated, it shows
+ * their email and the links to /orders and /profile. If the user is not
+ * authenticated, it shows a welcome message and a log in button.
+ */
 const MobileNav = () => {
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
 
