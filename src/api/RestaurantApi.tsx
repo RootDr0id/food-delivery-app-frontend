@@ -21,7 +21,7 @@ export const useGetRestaurant = (restaurantId?: string) => {
     "fetchRestaurant",
     getRestaurantByIdRequest,
     {
-      enabled: !!restaurantId,
+      enabled: !!restaurantId,//only enable the query when restaurantId is defined
     }
   );
 
