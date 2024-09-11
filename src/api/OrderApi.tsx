@@ -5,14 +5,14 @@ import { toast } from "sonner";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const useGetMyOrders = () => {
+export const useGetMyOrders = () => {//Hook that fetches my orders from our backend api
   const { getAccessTokenSilently } = useAuth0();
 
-  const getMyOrdersRequest = async (): Promise<Order[]> => {
+  const getMyOrdersRequest = async (): Promise<Order[]> => {//Request that we'll send to the backend endpoint
     const accessToken = await getAccessTokenSilently();
 
-    const response = await fetch(`${API_BASE_URL}/api/order`, {
-      headers: {
+    const response = await fetch(`${API_BASE_URL}/api/order`, {//Backend endpoint to fetch my orders
+      headers: {//without a specified method the deafault is GET
         Authorization: `Bearer ${accessToken}`,
       },
     });
@@ -28,7 +28,7 @@ export const useGetMyOrders = () => {
     "fetchMyOrders",
     getMyOrdersRequest,
     {
-      refetchInterval: 5000,
+      refetchInterval: 5000,//refetch every 5 seconds
     }
   );
 

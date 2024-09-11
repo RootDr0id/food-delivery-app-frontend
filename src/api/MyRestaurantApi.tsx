@@ -113,13 +113,13 @@ export const useUpdateMyRestaurant = () => {
   return { updateRestaurant, isLoading };
 };
 
-export const useGetMyRestaurantOrders = () => {
+export const useGetMyRestaurantOrders = () => {// hook that fetches my restaurant orders from the backend api
   const { getAccessTokenSilently } = useAuth0();
 
   const getMyRestaurantOrdersRequest = async (): Promise<Order[]> => {
     const accessToken = await getAccessTokenSilently();
 
-    const response = await fetch(`${API_BASE_URL}/api/my/restaurant/order`, {
+    const response = await fetch(`${API_BASE_URL}/api/my/restaurant/order`, {//backend end point
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
@@ -133,12 +133,12 @@ export const useGetMyRestaurantOrders = () => {
     return response.json();
   };
 
-  const { data: orders, isLoading } = useQuery(
+  const { data: orders, isLoading } = useQuery(//useQuery hook that we will use to fetch our orders
     "fetchMyRestaurantOrders",
     getMyRestaurantOrdersRequest
   );
 
-  return { orders, isLoading };
+  return { orders, isLoading };//retrun the orders
 };
 
 type UpdateOrderStatusRequest = {

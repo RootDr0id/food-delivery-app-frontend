@@ -26,7 +26,7 @@ export type MenuItem = {
     lastUpdated: string;
   };
   
-  export type OrderStatus =
+  export type OrderStatus =//The status of an order can only be one of the following
     | "placed"
     | "paid"
     | "inProgress"

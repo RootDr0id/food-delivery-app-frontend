@@ -9,7 +9,7 @@ const MainNav = () => {
 
   return (
     <span className="flex space-x-2 items-center">
-      {isAuthenticated ? (
+      {isAuthenticated ? (//If user is logged in
         <>
           <Link to="/order-status" className="font-bold hover:text-orange-500">
             Order Status

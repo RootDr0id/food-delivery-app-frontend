@@ -23,7 +23,7 @@ const CuisineFilter = ({
 
     const newCuisinesList = isChecked
       ? [...selectedCuisines, clickedCuisine]
-      : selectedCuisines.filter((cuisine) => cuisine !== clickedCuisine);
+      : selectedCuisines.filter((cuisine) => cuisine !== clickedCuisine);//
 
     onChange(newCuisinesList);
   };

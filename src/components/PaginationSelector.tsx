@@ -26,7 +26,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
           <PaginationItem>
             <PaginationPrevious
               href="#"
-              onClick={() => onPageChange(page - 1)}
+              onClick={() => onPageChange(page - 1)}//only works if page is greater than 1 othrewise ther is no previous page.
             />
           </PaginationItem>
         )}

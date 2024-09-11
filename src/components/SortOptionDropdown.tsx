@@ -14,7 +14,7 @@ type Props = {
 const SORT_OPTIONS = [
   {
     label: "Best match",
-    value: "bestMatch",
+    value: "bestMatch",//this means that it'll return the last db entry.
   },
   {
     label: "Delivery price",
