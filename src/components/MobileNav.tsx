@@ -35,7 +35,7 @@ const MobileNav = () => {
               {user?.email}
             </span>
           ) : (
-            <span> Welcome to MyLogo.com!</span>
+            <span> Welcome to Taste of Algeria!</span>
           )}
         </SheetTitle>
         <Separator />
