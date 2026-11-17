@@ -3,16 +3,12 @@ import { MenuItem as MenuItemType } from "../types";
 import MenuItemComponent from "@/components/MenuItemComponent";
 import OrderSummary from "@/components/OrderSummary";
 import RestaurantInfo from "@/components/RestaurantInfo";
-import { Card, CardFooter } from "@/components/ui/card"; 
+import { Card, CardFooter } from "@/components/ui/card";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import CheckoutButton from "@/components/CheckoutButton";
-
-
-
 import { useCreateCheckoutSession } from "@/api/OrderApi";
 
 export type CartItem = {
@@ -32,7 +28,7 @@ export type CartItem = {
 const DetailPage = () => {
   const { restaurantId } = useParams();
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
-   const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
+  const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
 
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
@@ -41,20 +37,19 @@ const DetailPage = () => {
 
   const addToCart = (menuItem: MenuItemType) => {
     setCartItems((prevCartItems) => {
-
       const existingCartItem = prevCartItems.find(
         (cartItem) => cartItem._id === menuItem._id
       );
 
       let updatedCartItems;
 
-      if (existingCartItem) {//increment quantity if item is already in cart
+      if (existingCartItem) {
         updatedCartItems = prevCartItems.map((cartItem) =>
           cartItem._id === menuItem._id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }//
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
-      } else {//add new item if it is not in cart
+      } else {
         updatedCartItems = [
           ...prevCartItems,
           {
@@ -65,7 +60,7 @@ const DetailPage = () => {
           },
         ];
       }
-//save cart items to session storage to find them after a redirect from auth0
+
       sessionStorage.setItem(
         `cartItems-${restaurantId}`,
         JSON.stringify(updatedCartItems)
@@ -91,8 +86,7 @@ const DetailPage = () => {
   };
 
   const onCheckout = async (userFormData: UserFormData) => {
-    console.log("userFormData", userFormData);
-     if (!restaurant) {
+    if (!restaurant) {
       return;
     }
 
@@ -113,7 +107,7 @@ const DetailPage = () => {
     };
 
     const data = await createCheckoutSession(checkoutData);
-    window.location.href = data.url; //redirect to stripe
+    window.location.href = data.url;
   };
 
   if (isLoading || !restaurant) {
