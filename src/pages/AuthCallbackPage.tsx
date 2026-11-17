@@ -19,7 +19,8 @@ const AuthCallbackPage = () => {
       return;
     }
 
-    if (!user?.sub || !user.email) {
+    const email = user?.email;
+    if (!user?.sub || !email) {
       navigate("/", { replace: true });
       return;
     }
@@ -28,7 +29,7 @@ const AuthCallbackPage = () => {
 
     const initializeUser = async () => {
       try {
-        await createUser({ email: user.email });
+        await createUser({ email });
         if (isActive) {
           navigate("/", { replace: true });
         }
