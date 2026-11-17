@@ -1,28 +1,66 @@
 import { useCreateMyUser } from "@/api/MyUserApi";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 /**
- * This page is only accessible immediately after the user has logged in.
- * It is responsible for creating a new user in our database if the user
- * doesn't already exist, and then redirecting the user to the home page.
- * @returns a loading message
+ * Creates the authenticated user's database record when needed.
+ * The home page is shown only after the backend confirms the request.
  */
 const AuthCallbackPage = () => {
-  const navigate = useNavigate(); //to navigate away from this callback page to the home pagee
-  const { user } = useAuth0();
+  const navigate = useNavigate();
+  const { user, isLoading: isAuthLoading } = useAuth0();
   const { createUser } = useCreateMyUser();
-
-  const hasCreatedUser = useRef(false);//useref stores a state value that doesn't trigger a rerender u^pon its change unlike usestate
+  const [retryCount, setRetryCount] = useState(0);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    if (user?.sub && user?.email && !hasCreatedUser.current) {
-      createUser({ email: user.email });
-      hasCreatedUser.current = true;
+    if (isAuthLoading) {
+      return;
     }
-    navigate("/");
-  }, [createUser, navigate, user]);
+
+    if (!user?.sub || !user.email) {
+      navigate("/", { replace: true });
+      return;
+    }
+
+    let isActive = true;
+
+    const initializeUser = async () => {
+      try {
+        await createUser({ email: user.email });
+        if (isActive) {
+          navigate("/", { replace: true });
+        }
+      } catch {
+        if (isActive) {
+          setHasError(true);
+        }
+      }
+    };
+
+    setHasError(false);
+    initializeUser();
+
+    return () => {
+      isActive = false;
+    };
+  }, [createUser, isAuthLoading, navigate, retryCount, user?.email, user?.sub]);
+
+  if (hasError) {
+    return (
+      <div className="flex flex-col items-center gap-3 p-6 text-center">
+        <p>We couldn't finish setting up your account. Please check your connection and try again.</p>
+        <button
+          type="button"
+          className="rounded-md bg-primary px-4 py-2 text-primary-foreground"
+          onClick={() => setRetryCount((count) => count + 1)}
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
 
   return <>Loading...</>;
 };
