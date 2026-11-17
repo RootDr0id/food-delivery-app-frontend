@@ -58,7 +58,6 @@ export const useGetMyUser = () => {
 };
 
 type CreateUserRequest = {
-  auth0Id: string;
   email: string;
 };
 
